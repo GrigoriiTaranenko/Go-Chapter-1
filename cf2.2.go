@@ -9,7 +9,7 @@ import (
 	"weightconf"
 )
 
-func commandLine(arg string, units *map[string]float64) {
+func commandLine(arg string) {
 	conf, err := strconv.ParseFloat(arg, 64)
 	if err !=nil {
 		fmt.Fprintf(os.Stderr, "cf: %v\n", err)
@@ -32,8 +32,7 @@ func commandLine(arg string, units *map[string]float64) {
 }
 
 func main () {
-	units := make(map[string]float64)
 	for _, arg := range os.Args[1:] {
-		commandLine(arg, &units)
+		commandLine(arg)
 	}
 }
